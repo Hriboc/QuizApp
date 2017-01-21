@@ -8,11 +8,6 @@
 
 #import "Answer.h"
 
-// local stuff
-@interface Answer()
-
-@end
-
 @implementation Answer
 
 @end

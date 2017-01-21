@@ -8,11 +8,6 @@
 
 #include "Question.h"
 
-// local stuff
-@interface Question()
-
-@end
-
 @implementation Question
 
 @end

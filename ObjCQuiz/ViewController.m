@@ -48,7 +48,7 @@
     // Show question
     [self updateViewWithQuestion];
     
-    // Make the UI elements looks nice
+    // Make buttons and text view look nice
     [self makeCoolUIElements];
 }
 
@@ -67,9 +67,18 @@
 - (IBAction)btnNext:(id)sender {
     // Enable answer buttons
     [self disableAnswerUIButtons:NO];
-
+    
     // Show question
     [self updateViewWithQuestion];
+    
+    // If new game has started make changes to the UI
+    if([self.btnNext.titleLabel.text isEqualToString:@"Nytt Spel"]){
+        
+        [self.btnNext setTitle:@"Nästa Fråga" forState:UIControlStateNormal];
+        
+        // show answer buttons and question num label
+        [self hideUIElements:NO];
+    }
 }
 
 - (void) updateViewWithQuestion{
@@ -92,15 +101,8 @@
     // Set the number of the question
     self.lblNumQuestion.text = [NSString stringWithFormat:@"Fråga %i", [self.game getNumOfQuestion]];
     
-    // Clear lable for Right/Wrong answer
+    // Clear label for Right/Wrong answer
     self.lblRightWrong.text = @"";
-    
-    // show buttons and label
-    [self hideUIElements:NO];
-        
-    // Set title for this buton to Next Question
-    [self.btnNext setTitle:@"Nästa Fråga" forState:UIControlStateNormal];
-
 }
 
 - (void) setAnswerRightOrWrong:(NSString*)answer{
